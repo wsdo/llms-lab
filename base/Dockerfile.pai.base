@@ -1,0 +1,9 @@
+FROM registry.cn-beijing.aliyuncs.com/agi/pai-base:v1
+
+# MAINTAINER
+MAINTAINER starkwang starkwanglab@gmail.com
+
+# WORKDIR 指定工作目录
+WORKDIR /home/
+
+RUN Python -V

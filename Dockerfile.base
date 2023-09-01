@@ -1,0 +1,21 @@
+FROM anibali/pytorch:1.13.0-cuda11.8-ubuntu22.04
+
+# Set up time zone.
+ENV TZ=UTC
+RUN sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
+
+
+# MAINTAINER
+MAINTAINER starkwang starkwanglab@gmail.com
+
+ENV DEBIAN_FRONTEND noninteractive
+
+# WORKDIR 指定工作目录
+WORKDIR /home/
+RUN sudo apt-get update -y
+RUN sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev git-lfs
+
+
+# 安装包
+COPY chatglm2-6b chatglm2-6b
+
